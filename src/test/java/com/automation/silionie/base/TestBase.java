@@ -32,6 +32,7 @@ public class TestBase {
         CLIENTID = props.getProperty("clientId");
         CLIENTSECRET = props.getProperty("clientSecret");
 
+        accessToken="token 2ab21d28c906150d9e28fd9cf6d41b3ec68b7bbe";
 //        accessToken = RestAssured.given()
 //                .accept(ContentType.JSON)
 //                .auth()

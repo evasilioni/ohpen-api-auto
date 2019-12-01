@@ -3,13 +3,15 @@ package com.automation.silionie.githubPart1;
 import com.automation.silionie.base.TestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import org.testng.annotations.Ignore;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
 
 import static io.restassured.RestAssured.given;
 
 public class EndpointsTest extends TestBase {
+
+    static Integer user_id;
 
     @Test
     public void getGitHubUsersTest() {
@@ -47,29 +49,31 @@ public class EndpointsTest extends TestBase {
         response.then().statusCode(200);
     }
 
-    @Ignore
     @Test
-    public void postRepotoGithubUserTest() {
+    public void patchGithubUserTest() {
 
         String repoBody = "{" +
-            "\"name\":\"Ohpen-Automation-Repo\"," +
-            "\"description\":\"An automation repo for Ohpen Testing\"," +
-            "\"homepage\":\"https://github.com\"," +
-            "\"private\": false," +
-            "\"has_issues\": true," +
-            "\"has_projects\": true ," +
-            "\"has_wiki\": true }";
+            "\"name\":\"evi silioni\"," +
+            "\"email\":\"evesino@gmail.com\"," +
+            "\"blog\":\"https://github.com/blog\"," +
+            "\"company\":\"GitHub\"," +
+            "\"location\": \"Athens\"," +
+            "\"bio\": \"Once upon a time in Barcelona\"" + "}";
 
-        Object id = given()
+        user_id = given()
                 .contentType(ContentType.JSON)
-                .auth()
-                .oauth2(accessToken)
+                .header("Authorization", accessToken)
                 .when()
                 .body(repoBody)
-                .post("/user/repos").then()
-                .extract()
+                .patch("/user")
+                .then().extract()
                 .path("id");
-        System.out.println(id);
+
+
+        Assert.assertNotNull(user_id);
     }
+
+
+
 
 }

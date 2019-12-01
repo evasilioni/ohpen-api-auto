@@ -18,6 +18,7 @@ jobs:
                                         - ~/m2
                                 key: circleci-ohpen-{{ checksum "pom.xml" }}
                         - run: mvn package
+                        - run: mvn surefire-report:report
                         - store_test_results:
                                 path: target/surefire-reports
                         - store_artifacts:
