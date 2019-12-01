@@ -4,6 +4,7 @@ import com.automation.silionie.base.TestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 
@@ -49,6 +50,7 @@ public class EndpointsTest extends TestBase {
         response.then().statusCode(200);
     }
 
+    @Ignore
     @Test
     public void patchGithubUserTest() {
 
