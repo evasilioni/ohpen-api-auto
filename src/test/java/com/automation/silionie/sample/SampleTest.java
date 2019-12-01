@@ -1,6 +1,7 @@
 package com.automation.silionie.sample;
 
 import io.restassured.RestAssured;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -24,5 +25,7 @@ public class SampleTest {
          * then()
          * Validate status code, extract response, extract headers, cookies, extract the response body
          */
+
+        Assert.assertEquals(1, 1);
     }
 }

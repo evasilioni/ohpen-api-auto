@@ -4,6 +4,9 @@ jobs:
                 working_directory: ~/circleci-ohpen
                 docker: 
                         - image: circleci/openjdk:8-jdk-stretch
+                branches:
+                  only:
+                  - develop
                 steps:
                         - checkout
                         - restore_cache:
