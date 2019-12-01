@@ -32,13 +32,13 @@ public class TestBase {
         CLIENTID = props.getProperty("clientId");
         CLIENTSECRET = props.getProperty("clientSecret");
 
-        accessToken = RestAssured.given()
-                .accept(ContentType.JSON)
-                .auth()
-                .preemptive()
-                .basic(CLIENTID, CLIENTSECRET)
-                .when().post("https://github.com/login/oauth/token").then()
-                .extract()
-                .path("access_token");
+//        accessToken = RestAssured.given()
+//                .accept(ContentType.JSON)
+//                .auth()
+//                .preemptive()
+//                .basic(CLIENTID, CLIENTSECRET)
+//                .when().post("https://github.com/login/oauth/token").then()
+//                .extract()
+//                .path("access_token");
     }
 }
